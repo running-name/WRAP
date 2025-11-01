@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whistleblower Retaliation Application Preparation (WRAP) Toolkit</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #eef2f7; /* Light blue-gray background */
+            color: #333;
+        }
+        .font-heading { font-family: 'Roboto Slab', serif; }
+        
+        /* Card Styling */
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem; /* p-6 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .card.bg-gray-50 { background-color: #f9fafb; }
+        .card.bg-gray-100 { background-color: #f3f4f6; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            border: 1px solid transparent;
+        }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-primary { background-color: #2563eb; color: white; border-color: #1d4ed8; }
+        .btn-primary:hover:not(:disabled) { background-color: #1d4ed8; }
+        .btn-secondary { background-color: #e5e7eb; color: #374151; border-color: #d1d5db; }
+        .btn-secondary:hover:not(:disabled) { background-color: #d1d5db; }
+        .btn-green { background-color: #10b981; color: white; border-color: #059669; }
+        .btn-green:hover:not(:disabled) { background-color: #059669; }
+        .btn.invisible { visibility: hidden; }
+
+        /* Forms */
+        .form-input, .form-select, .form-textarea, .form-checkbox, .form-radio {
+             border-color: #d1d5db;
+             border-radius: 6px;
+        }
+        .form-input, .form-select, .form-textarea { padding: 0.6rem 0.8rem; }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+             border-color: #2563eb;
+             box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+             outline: none;
+        }
+        .form-checkbox, .form-radio { color: #2563eb; }
+        .form-checkbox:focus, .form-radio:focus { box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2); }
+
+        /* Progress Bar */
+        .progress-bar-bg { background-color: #e5e7eb; }
+        .progress-bar-fill { background-color: #2563eb; transition: width 0.3s ease; }
+        
+        /* Tooltips */
+        .tooltip { position: relative; cursor: help; }
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 250px;
+            background-color: #374151; /* gray-700 */
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 10;
+            bottom: 125%; /* Position above the element */
+            left: 50%;
+            margin-left: -125px; /* Use half of the width to center */
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none; /* Allows hover on element beneath */
+        }
+        .tooltip:hover .tooltip-text { visibility: visible; opacity: 1; }
+        
+        /* Step Content Area */
+        .step-content { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Print-specific styles */
+        @media print {
+            body { background-color: white; padding: 0; margin: 0; font-family: 'Times New Roman', Times, serif; }
+            body * {
+                visibility: hidden;
+                 -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            #printableArea, #printableArea * {
+                visibility: visible;
+            }
+            #printableArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 0.75in; /* Standard margins */
+                box-shadow: none;
+                border: none;
+                font-size: 11pt; /* Base print font size */
+                line-height: 1.4;
+            }
+            .no-print { display: none !important; }
+            h1, h2, h3 { color: black !important; page-break-after: avoid; font-family: 'Times New Roman', Times, serif; }
+            hr { display: none; }
+            .page-break { page-break-before: auto; } /* Removed forced page breaks */
+            p, li, table, thead, tbody, tr, th, td { page-break-inside: avoid; }
+            .tooltip { cursor: default; }
+            .tooltip-text { display: none; }
+            .card { box-shadow: none; border: none; padding: 0; margin-bottom: 1.5rem; background-color: transparent; }
+            
+            #printableArea h1 { font-size: 16pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 4px; margin-bottom: 0.8em; }
+            #printableArea h2 { font-size: 13pt; font-weight: bold; margin-top: 1.5em; margin-bottom: 0.5em; }
+            #printableArea h3 { font-size: 12pt; font-weight: bold; margin-top: 1em; margin-bottom: 0.3em; }
+            #printableArea p, #printableArea li { margin-bottom: 0.4em; }
+            #printableArea ul { list-style-type: disc; padding-left: 1.5em; margin-top: 0.2em; margin-bottom: 0.8em; }
+            #printableArea table { width: 100%; border-collapse: collapse; margin-top: 0.5em; margin-bottom: 1em;}
+            #printableArea th, #printableArea td { border: 1px solid #999; padding: 5px; text-align: left; vertical-align: top; font-size: 10pt;}
+            #printableArea th { background-color: #f0f0f0; font-weight: bold;}
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div id="app" class="w-full max-w-4xl mx-auto">
+        <!-- App Header -->
+        <header class="text-center mb-6 no-print">
+            <h1 class="font-heading text-4xl font-bold text-gray-800">WRAP Toolkit</h1>
+            <p class="text-gray-600">Whistleblower Retaliation Application Preparation</p>
+        </header>
+
+        <!-- Main Content Card -->
+        <div id="main-card" class="card">
+             <!-- Progress Bar -->
+            <div id="progress-container" class="mb-8 hidden no-print">
+                <div class="flex justify-between mb-1">
+                    <span id="progress-label" class="text-sm font-medium text-gray-700"></span>
+                    <span id="progress-percent" class="text-sm font-medium text-gray-700"></span>
+                </div>
+                <div class="w-full progress-bar-bg rounded-full h-2.5">
+                    <div id="progress-bar" class="progress-bar-fill h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- App Steps Container -->
+            <div id="steps-container">
+                <!-- Steps will be rendered here by JavaScript -->
+            </div>
+        </div>
+        
+    </div>
+
+<script type="module">
+// Define the main application object
+const app = {
+    currentStep: 0,
+    userData: {
+        employmentType: null,
+        nameAlias: "", // Added to store the user's name/alias
+        agency: null,
+        contractingAgency: null,
+        militaryBranch: null,
+        militaryStatus: null,
+        employmentLocation: '',
+        otherAgency: '',
+        industry: '',
+        employmentStatus: '',
+        positionTitle: '',
+        hasClearance: null,
+        clearanceLevel: '',
+        dateStarted: '',
+        dateIdentifiedWrongdoing: '',
+        hasReportedIncident: null,
+        reportType: null,
+        isProtectedDisclosure: null,
+        hasBeenRetaliatedAgainst: null,
+        retaliationTechniques: new Set(),
+        complaints: new Set(),
+        otherComplaint: "",
+        timeline: [],
+        narrative: "",
+        wrongdoingExperienceType: null,
+        harmTypes: new Set(),
+        involvedHarmRisk: null, 
+        hostileEnvironment: null, 
+        qualityOfLifeChanged: null, 
+        storyInPublicDomain: null, 
+    },
+    // Array to hold the step rendering functions
+    steps: [], 
+
+    // --- Core Methods ---
+    
+    init() {
+        // Define the sequence of steps by assigning the rendering functions
+        this.steps = [
+            this.renderWelcomeStep,    // Step 0
+            this.renderEmploymentStep, // Step 1
+            this.renderComplaintStep,  // Step 2
+            this.renderNarrativeStep,  // Step 3
+            this.renderTimelineStep,   // Step 4 (Includes Reporting/Retaliation/Impact)
+            this.renderSummaryStep     // Step 5 (Final Review & Print)
+        ];
+        // Render the initial step (Welcome screen)
+        this.renderStep();
+    },
+
+    renderStep() {
+        const container = document.getElementById('steps-container');
+        if (!container) { 
+            console.error("Fatal Error: Steps container element (#steps-container) not found in the DOM.");
+            document.body.innerHTML = '<p class="text-red-600 text-center font-bold mt-10">Error: Application structure missing.</p>';
+            return; 
+        }
+        container.innerHTML = ''; // Clear previous step content
+
+        // Validate current step index
+        if (this.currentStep < 0 || this.currentStep >= this.steps.length) {
+            console.error("Invalid step index:", this.currentStep, "- Resetting to 0.");
+            this.currentStep = 0; 
+        }
+        
+        // Get the rendering function for the current step
+        const renderFunction = this.steps[this.currentStep];
+        
+        // Ensure it's a valid function before calling
+        if (typeof renderFunction === 'function') {
+            try {
+                // Call the rendering function (binding 'this' to the app object)
+                const stepContent = renderFunction.call(this); 
+                // Check if the function returned a valid HTML element
+                if (stepContent instanceof Node) {
+                    container.appendChild(stepContent); 
+                } else {
+                    console.error("Render function did not return a valid HTML Node for step:", this.currentStep);
+                    container.innerHTML = `<p class="text-red-500">Error loading step content.</p>`;
+                }
+            } catch (error) {
+                 // Catch any errors during the rendering of the step
+                 console.error("Error rendering step", this.currentStep, ":", error);
+                 container.innerHTML = `<p class="text-red-500">An error occurred while rendering this step. Details: ${error.message}. Check the console.</p>`;
+            }
+        } else {
+            console.error("No valid render function found for step:", this.currentStep);
+             container.innerHTML = `<p class="text-red-500">Error: Step definition missing or invalid.</p>`;
+        }
+        
+        // Update the visual progress bar
+        this.updateProgress();
+    },
+
+    updateProgress() {
+        const progressContainer = document.getElementById('progress-container');
+        if (!progressContainer) return; // Exit if progress bar elements aren't found
+
+        // Show progress bar only for intermediate steps (not welcome or summary)
+        if (this.currentStep > 0 && this.currentStep < this.steps.length -1) { 
+            progressContainer.classList.remove('hidden');
+            const totalQuestionSteps = this.steps.length - 2; // Exclude Welcome and Summary
+            const currentProgressStep = this.currentStep; // Step 1 is the first question step
+            const percent = ((currentProgressStep) / totalQuestionSteps) * 100;
+            
+            const progressBar = document.getElementById('progress-bar');
+            const progressLabel = document.getElementById('progress-label');
+            const progressPercent = document.getElementById('progress-percent');
+
+            if (progressBar) progressBar.style.width = `${percent}%`;
+            if (progressLabel) progressLabel.textContent = `Step ${currentProgressStep} of ${totalQuestionSteps}`;
+            if (progressPercent) progressPercent.textContent = `${Math.round(percent)}%`;
+        } else {
+            // Hide progress bar on Welcome and Summary steps
+            progressContainer.classList.add('hidden');
+        }
+    },
+
+    nextStep() {
+        // Only proceed if the current step passes validation
+        if (this.validateStep()) {
+            if (this.currentStep < this.steps.length - 1) {
+                this.currentStep++;
+                this.renderStep();
+                window.scrollTo(0, 0); // Scroll to top of new step
+            }
+        }
+    },
+
+    prevStep() {
+        if (this.currentStep > 0) {
+            // Save data from the current step before going back
+            this.saveCurrentStepData(); 
+            this.currentStep--;
+            this.renderStep();
+            window.scrollTo(0, 0); // Scroll to top of previous step
+        }
+    },
+
+     // Saves data from the current step's form elements into the userData object
+    saveCurrentStepData() {
+        // Use try-catch to prevent errors if elements don't exist (e.g., due to conditional logic)
+        try {
+            if (this.currentStep === 1) { // Employment Step
+                this.userData.employmentType = document.getElementById('employmentType')?.value || null;
+                this.userData.industry = document.getElementById('industry')?.value || '';
+                this.userData.employmentStatus = document.getElementById('employmentStatus')?.value || '';
+                this.userData.positionTitle = document.getElementById('positionTitle')?.value || '';
+                
+                const hasClearanceRadio = document.querySelector('input[name="hasClearance"]:checked');
+                this.userData.hasClearance = hasClearanceRadio ? hasClearanceRadio.value : null;
+                this.userData.clearanceLevel = (this.userData.hasClearance === 'yes') ? (document.getElementById('clearanceLevel')?.value || '') : '';
+                
+                // Reset fields specific to other types before potentially setting one
+                this.userData.agency = null;
+                this.userData.contractingAgency = null;
+                this.userData.militaryBranch = null;
+                this.userData.militaryStatus = null;
+                this.userData.otherAgency = '';
+                this.userData.employmentLocation = '';
+
+                const empType = this.userData.employmentType;
+                if(empType === 'federal') {
+                    const agencySelect = document.getElementById('agency');
+                    if (agencySelect?.value === 'Other') {
+                       this.userData.agency = document.getElementById('other-agency-federal')?.value?.trim() || 'Other (Not Specified)'; // Store entered text
+                       this.userData.otherAgency = this.userData.agency; // Keep track of the 'Other' text
+                    } else {
+                       this.userData.agency = agencySelect?.value || null;
+                    }
+                } else if(empType === 'contractor') {
+                    const contractingSelect = document.getElementById('contractingAgency');
+                     if (contractingSelect?.value === 'Other') {
+                       this.userData.contractingAgency = document.getElementById('other-agency-contractor')?.value?.trim() || 'Other (Not Specified)';
+                       this.userData.otherAgency = this.userData.contractingAgency;
+                    } else {
+                       this.userData.contractingAgency = contractingSelect?.value || null;
+                    }
+                } else if (empType === 'military') {
+                    this.userData.militaryStatus = document.getElementById('militaryStatus')?.value || null;
+                    this.userData.militaryBranch = document.getElementById('militaryBranch')?.value || null;
+                } else if (['non_profit', 'private_sector', 'local_government', 'international'].includes(empType)) {
+                    this.userData.employmentLocation = document.getElementById('employmentLocation')?.value?.trim() || '';
+                }
+            }
+            else if (this.currentStep === 2) { // Complaint Step
+                this.userData.complaints.clear();
+                this.userData.otherComplaint = ""; 
+                let otherIsChecked = false;
+                document.querySelectorAll('input[name="complaint"]:checked').forEach(box => {
+                    if (box.value === 'Other') {
+                        otherIsChecked = true;
+                    } else {
+                        this.userData.complaints.add(box.value);
+                    }
+                });
+                if (otherIsChecked) {
+                    this.userData.otherComplaint = document.getElementById('complaint-other-text')?.value?.trim() || '';
+                }
+            }
+            else if (this.currentStep === 3) { // Narrative step
+                this.userData.narrative = document.getElementById('narrative-textarea')?.value || '';
+                this.userData.wrongdoingExperienceType = document.getElementById('wrongdoingExperience')?.value || null;
+                this.userData.harmTypes.clear();
+                document.querySelectorAll('input[name="harmType"]:checked').forEach(checkbox => {
+                    this.userData.harmTypes.add(checkbox.value);
+                });
+            }
+            else if (this.currentStep === 4) { // Timeline/Reporting/Retaliation Step
+                this.userData.dateStarted = document.getElementById('date-started')?.value || '';
+                this.userData.dateIdentifiedWrongdoing = document.getElementById('date-identified')?.value || '';
+                
+                const reportedIncidentRadio = document.querySelector('input[name="reportedIncident"]:checked');
+                this.userData.hasReportedIncident = reportedIncidentRadio ? reportedIncidentRadio.value : null;
+
+                if(this.userData.hasReportedIncident === 'yes') {
+                    const reportTypeRadio = document.querySelector('input[name="reportType"]:checked');
+                    this.userData.reportType = reportTypeRadio ? reportTypeRadio.value : null;
+                    const protectedDisclosureRadio = document.querySelector('input[name="protectedDisclosure"]:checked');
+                    this.userData.isProtectedDisclosure = protectedDisclosureRadio ? protectedDisclosureRadio.value : null;
+                } else {
+                    this.userData.reportType = null;
+                    this.userData.isProtectedDisclosure = null;
+                }
+                
+                const retaliatedAgainstRadio = document.querySelector('input[name="retaliatedAgainst"]:checked');
+                this.userData.hasBeenRetaliatedAgainst = retaliatedAgainstRadio ? retaliatedAgainstRadio.value : null;
+                
+                this.userData.retaliationTechniques.clear();
+                if(this.userData.hasBeenRetaliatedAgainst === 'yes') {
+                    document.querySelectorAll('input[name="retaliationTechnique"]:checked').forEach(box => {
+                        this.userData.retaliationTechniques.add(box.value);
+                    });
+                }
+                // Save impact assessment answers
+                const involvedHarmRadio = document.querySelector('input[name="involvedHarmRisk"]:checked');
+                this.userData.involvedHarmRisk = involvedHarmRadio ? involvedHarmRadio.value : null;
+                const hostileEnvRadio = document.querySelector('input[name="hostileEnvironment"]:checked');
+                this.userData.hostileEnvironment = hostileEnvRadio ? hostileEnvRadio.value : null;
+                const lifeChangedRadio = document.querySelector('input[name="qualityOfLifeChanged"]:checked');
+                this.userData.qualityOfLifeChanged = lifeChangedRadio ? lifeChangedRadio.value : null;
+                const publicDomainRadio = document.querySelector('input[name="storyInPublicDomain"]:checked');
+                this.userData.storyInPublicDomain = publicDomainRadio ? publicDomainRadio.value : null;
+            }
+        } catch (error) {
+             console.error("Error saving data for step", this.currentStep, ":", error);
+             // Optionally alert the user or log this more prominently
+             alert("An error occurred while saving your progress. Please check the console for details.");
+        }
+    },
+
+    // Validates the current step's required fields before proceeding
+    validateStep() {
+        this.saveCurrentStepData(); // Ensure latest data is saved before validating
+
+        if (this.currentStep === 1) { // Employment Step
+            if (!this.userData.employmentType) { alert("Please select your employment type."); return false; }
+            if (this.userData.employmentType === 'federal' && !this.userData.agency) { alert("Please select or specify your agency."); return false; }
+            if (this.userData.employmentType === 'contractor' && !this.userData.contractingAgency) { alert("Please select or specify the contracting agency."); return false; }
+            if (this.userData.employmentType === 'military' && (!this.userData.militaryStatus || !this.userData.militaryBranch)) { alert("Please select your military status and branch."); return false; }
+            if (['non_profit', 'private_sector', 'local_government', 'international'].includes(this.userData.employmentType) && !this.userData.employmentLocation) { alert("Please specify your employment location/organization."); return false; }
+            if (!this.userData.positionTitle) { alert("Please enter your Position/Title."); return false; }
+            if (!this.userData.employmentStatus) { alert("Please select your current employment status."); return false; }
+            if (!this.userData.industry) { alert("Please select your industry."); return false; }
+            if (this.userData.hasClearance === null) { alert("Please indicate if you have a security clearance."); return false; }
+            if (this.userData.hasClearance === 'yes' && !this.userData.clearanceLevel) { alert("Please select your clearance level."); return false; }
+        }
+        else if (this.currentStep === 2) { // Complaint Step
+            const otherChecked = document.getElementById('complaint-other-checkbox')?.checked;
+            if (this.userData.complaints.size === 0 && (!otherChecked || !this.userData.otherComplaint)) {
+                alert("Please select at least one type of complaint or specify 'Other'.");
+                return false;
+            }
+            if (otherChecked && !this.userData.otherComplaint) {
+                 alert("Please specify your 'Other' complaint.");
+                 return false;
+            }
+        }
+        else if (this.currentStep === 3) { // Narrative step
+            if (!this.userData.wrongdoingExperienceType) { alert("Please select how you experienced the wrongdoing."); return false; }
+            if (this.userData.harmTypes.size === 0) { alert("Please select at least one type of harm involved."); return false; }
+            if (!this.userData.narrative) { alert("Please provide your narrative."); return false; }
+        }
+        else if (this.currentStep === 4) { // Timeline/Reporting/Retaliation Step
+            if (!this.userData.dateStarted) { alert("Please enter the date you started the position."); return false; }
+            if (!this.userData.dateIdentifiedWrongdoing) { alert("Please enter the date you identified the wrongdoing."); return false; }
+            if (this.userData.hasReportedIncident === null) { alert("Please indicate if you reported the incident."); return false; }
+            if (this.userData.hasReportedIncident === 'yes' && this.userData.reportType === null) { alert("Please indicate if the report was internal or external."); return false; }
+            if (this.userData.hasReportedIncident === 'yes' && this.userData.isProtectedDisclosure === null) { alert("Please indicate if the report was a protected disclosure (or unsure)."); return false; }
+            if (this.userData.hasBeenRetaliatedAgainst === null) { alert("Please indicate if you have been retaliated against."); return false; }
+            if (this.userData.hasBeenRetaliatedAgainst === 'yes' && this.userData.retaliationTechniques.size === 0) { alert("Please select at least one retaliation technique experienced."); return false; }
+            if (this.userData.involvedHarmRisk === null) { alert("Please answer the question about harm/risk."); return false; }
+            if (this.userData.hostileEnvironment === null) { alert("Please answer the question about hostile environment."); return false; }
+            if (this.userData.qualityOfLifeChanged === null) { alert("Please answer the question about quality of life."); return false; }
+            if (this.userData.storyInPublicDomain === null) { alert("Please answer the question about your story being public."); return false; }
+        }
+        // If all validations pass for the current step
+        return true; 
+    },
+
+    // Creates the Previous/Next/Print/Analysis navigation buttons for the current step
+    createNavigation() {
+        const navContainer = document.createElement('div');
+        navContainer.className = 'flex justify-between items-center mt-8 pt-6 border-t no-print'; 
+
+        // Previous Button (always present except step 0)
+        const prevButton = document.createElement('button');
+        prevButton.textContent = 'Previous';
+        prevButton.className = 'btn btn-secondary';
+        prevButton.onclick = () => this.prevStep(); // Use arrow function to maintain 'this' context
+        if (this.currentStep === 0) {
+            prevButton.classList.add('invisible'); // Hide on first step
+        }
+
+        // Conditional Buttons: Next or Final Actions
+        if (this.currentStep === this.steps.length - 1) { // Final Summary Step
+            const buttonWrapper = document.createElement('div');
+            buttonWrapper.className = 'flex flex-wrap items-center justify-end gap-3'; // Use flex-wrap and gap for responsiveness
+
+            const printButton = document.createElement('button');
+            printButton.innerHTML = '<i class="fas fa-print mr-2"></i>Print Document';
+            printButton.className = 'btn btn-primary';
+            printButton.onclick = () => window.print();
+
+            const emailButton = document.createElement('button');
+            emailButton.innerHTML = '<i class="fas fa-envelope mr-2"></i>Email to WoA';
+            emailButton.className = 'btn btn-secondary';
+            emailButton.title = 'Opens your email client';
+            emailButton.onclick = () => {
+                const subject = encodeURIComponent("WOA WRAP Submission");
+                const body = encodeURIComponent(
+`To the Whistleblowers of America Team,
+
+Please find my WRAP Toolkit summary attached for review.
+
+To generate the attachment:
+1. Go back to the WRAP Toolkit summary page.
+2. Click the 'Print Document' button.
+3. In your browser's print dialog, select 'Save as PDF' or 'Print to PDF' as the destination.
+4. Save the file to your device.
+5. Attach that saved PDF file to this email before sending.
+
+Thank you.
+(Please remember to attach your PDF)
+`
+                );
+                window.location.href = `mailto:Info@whistblowersofamerica.org?subject=${subject}&body=${body}`;
+            };
+
+            // Create a container for the analysis button and its note
+            const analysisButtonContainer = document.createElement('div');
+            analysisButtonContainer.className = "text-right"; // Aligns the note with the button
+
+            const analysisButton = document.createElement('a'); // Use <a> for external link
+            analysisButton.textContent = 'Severity Score Analysis $25';
+            analysisButton.href = 'https://www.paypal.com/ncp/payment/5BSTV3SNQQ4MS';
+            analysisButton.target = '_blank'; // Open in new tab
+            analysisButton.rel = 'noopener noreferrer'; // Security best practice
+            analysisButton.className = 'btn btn-green'; 
+            
+            // Create the new note
+            const analysisNote = document.createElement('p');
+            analysisNote.className = "text-xs text-gray-500 mb-1"; // Changed from mt-1 to mb-1
+            analysisNote.textContent = "It will take about 30 minutes to complete.";
+
+            // Add the note first, then the button
+            analysisButtonContainer.append(analysisNote, analysisButton);
+
+            buttonWrapper.append(printButton, emailButton, analysisButtonContainer);
+            navContainer.append(prevButton, buttonWrapper); // Add Previous and the wrapper with Print/Analysis
+
+        } else { // All other steps (including Welcome)
+            const nextButton = document.createElement('button');
+            // Change button text on the step before the summary
+            nextButton.textContent = (this.currentStep === this.steps.length - 2) ? 'Review Summary' : 'Next'; 
+            nextButton.className = 'btn btn-primary';
+            nextButton.onclick = () => this.nextStep(); // Use arrow function
+            
+            navContainer.append(prevButton, nextButton); // Add Previous and Next
+        }
+
+        return navContainer;
+    },
+    
+    // --- Step Rendering Functions ---
+
+    renderWelcomeStep() {
+        const content = document.createElement('div');
+        content.className = 'step-content text-center';
+        content.innerHTML = `
+            <h2 class="font-heading text-2xl font-bold text-gray-800 mb-4">Prepare Your Whistleblower Retaliation Case</h2>
+            <p class="text-gray-600 mb-6 max-w-2xl mx-auto">This toolkit will guide you through documenting your situation to prepare for speaking with an attorney. Your information is <strong>private</strong> and is <strong>not saved</strong> on any server. It will be cleared when you close this page.</p>
+            
+            <div class="max-w-md mx-auto mb-6 text-left">
+                <label for="nameAlias" class="block text-md font-medium text-gray-700">Name/Alias (Optional)</label>
+                <input type="text" id="nameAlias" class="form-input w-full mt-1" placeholder="e.g., Jane D. or 'Observer'" value="${this.userData.nameAlias}">
+            </div>
+
+            <button id="start-btn" class="btn btn-primary text-lg">
+                Start Building My Case <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        `;
+        // Attach event listener directly
+        content.querySelector('#start-btn').onclick = () => {
+            // Save the name/alias when starting
+            this.userData.nameAlias = document.getElementById('nameAlias')?.value?.trim() || '';
+            this.nextStep();
+        };
+        
+        // --- No longer appending the standard prev/next navigation here ---
+
+        return content;
+    },
+
+    renderEmploymentStep() {
+        const agencies = ["Department of Agriculture", "Department of Commerce", "Department of Defense", "Department of Education", "Department of Energy", "Department of Health and Human Services", "Department of Homeland Security", "Department of Housing and Urban Development", "Department of the Interior", "Department of Justice", "Department of Labor", "Department of State", "Department of Transportation", "Department of the Treasury", "Department of Veterans Affairs", "Other"];
+        const industries = ["Aerospace & Defense", "Agriculture & Farming", "Biotechnology", "Cybersecurity", "Data Analytics & AI", "E-commerce", "Education Services", "Entertainment & Media", "Financial Services", "Fishing & Aquaculture", "Forestry & Logging", "Green Energy (Solar, Wind, Clean Tech)", "Healthcare & Social Assistance", "Hospitality (Hotels, Restaurants, Tourism)", "Information Technology", "Mining & Quarrying", "Oil & Gas Extraction", "Public Administration", "Real Estate", "Retail & Wholesale Trade", "Scientific Research & Development", "Software & App Development", "Telecommunications", "Transportation & Logistics"];
+        const employmentStatuses = ["Constructive Dismissal", "Demoted", "Detailed", "Employed", "Laid Off", "Leave without pay", "Probation", "Retired", "Terminated"];
+        const clearanceLevels = ["Public Trust", "Secret", "Top Secret", "TS/SCI", "TS/Poly"];
+        const militaryBranches = ["Air Force", "Army", "Coast Guard", "Marine Corps", "Navy", "Space Force"];
+        const militaryStatuses = ["Active Duty", "Guard", "Reserve"];
+
+        // Helper to generate <option> tags
+        const generateOptions = (options, selectedValue) => options.map(opt => `<option value="${opt}" ${selectedValue === opt ? 'selected' : ''}>${opt}</option>`).join('');
+        // Helper specifically for agencies to handle 'Other' text
+         const generateAgencyOptions = (options, selectedValue, otherTextValue) => {
+            let actualSelected = selectedValue;
+            // If the saved value isn't in the standard list BUT we have 'other' text, select 'Other'
+            if (selectedValue && !options.includes(selectedValue) && otherTextValue === selectedValue) {
+                actualSelected = "Other"; 
+            }
+            return options.map(opt => `<option value="${opt}" ${actualSelected === opt ? 'selected' : ''}>${opt}</option>`).join('');
+        };
+
+        const agencyOptionsHTML = generateAgencyOptions(agencies, this.userData.agency, this.userData.otherAgency);
+        const contractingOptionsHTML = generateAgencyOptions(agencies, this.userData.contractingAgency, this.userData.otherAgency);
+        const industryOptionsHTML = generateOptions(industries, this.userData.industry);
+        const statusOptionsHTML = generateOptions(employmentStatuses, this.userData.employmentStatus);
+        const clearanceOptionsHTML = generateOptions(clearanceLevels, this.userData.clearanceLevel);
+        const branchOptionsHTML = generateOptions(militaryBranches, this.userData.militaryBranch);
+        const militaryStatusOptionsHTML = generateOptions(militaryStatuses, this.userData.militaryStatus);
+        
+        // Determine visibility based on current userData
+        const empType = this.userData.employmentType;
+        const showFederal = empType === 'federal';
+        const showContractor = empType === 'contractor';
+        const showMilitary = empType === 'military';
+        const showLocation = ['non_profit', 'private_sector', 'local_government', 'international'].includes(empType);
+        
+        // Show 'Other' input if 'Other' is selected OR if the saved value isn't a standard agency
+        const showOtherFederal = showFederal && this.userData.agency && !agencies.includes(this.userData.agency);
+        const showOtherContractor = showContractor && this.userData.contractingAgency && !agencies.includes(this.userData.contractingAgency);
+        
+        const showClearanceLevel = this.userData.hasClearance === 'yes';
+
+        const content = document.createElement('div');
+        content.className = 'step-content';
+        // HTML structure using template literals and conditional rendering based on show* variables
+        content.innerHTML = `
+            <h2 class="font-heading text-xl font-bold text-gray-800 mb-4">Step 1: Employment Information</h2>
+            <p class="text-gray-600 mb-6">First, let's establish your employment status and industry.</p>
+            
+            <div class="space-y-4 mb-6">
+                <label for="employmentType" class="block text-md font-medium text-gray-700">What is/was your employment type at the time you blew the whistle?</label>
+                <select id="employmentType" class="form-select w-full">
+                    <option value="">Select an option...</option>
+                    <option value="federal" ${empType === 'federal' ? 'selected' : ''}>Federal Employee</option>
+                    <option value="contractor" ${empType === 'contractor' ? 'selected' : ''}>Federal Contractor</option>
+                    <option value="military" ${empType === 'military' ? 'selected' : ''}>Military</option>
+                    <option value="non_profit" ${empType === 'non_profit' ? 'selected' : ''}>Non Profit</option>
+                    <option value="private_sector" ${empType === 'private_sector' ? 'selected' : ''}>Private Sector</option>
+                    <option value="local_government" ${empType === 'local_government' ? 'selected' : ''}>Local Government</option>
+                    <option value="international" ${empType === 'international' ? 'selected' : ''}>International (Outside U.S.)</option>
+                </select>
+            </div>
+
+            <!-- Conditional Sections -->
+            <div id="federal-employee-questions" class="${showFederal ? '' : 'hidden'} card bg-gray-50 p-4 space-y-4 mb-6">
+                <label for="agency" class="block text-md font-medium text-gray-700">Which agency do you work for?</label>
+                <select id="agency" class="form-select w-full mt-1"><option value="">Select an Agency...</option>${agencyOptionsHTML}</select>
+                <div id="other-agency-container-federal" class="${showOtherFederal ? '' : 'hidden'} mt-2">
+                    <label for="other-agency-federal" class="block text-sm font-medium text-gray-700">Please specify your agency:</label>
+                    <input type="text" id="other-agency-federal" class="form-input w-full mt-1" value="${this.userData.otherAgency}">
+                </div>
+            </div>
+            
+            <div id="contractor-questions" class="${showContractor ? '' : 'hidden'} card bg-gray-50 p-4 space-y-4 mb-6">
+                 <label for="contractingAgency" class="block text-md font-medium text-gray-700">Which agency are you a contractor for?</label>
+                 <select id="contractingAgency" class="form-select w-full mt-1"><option value="">Select an Agency...</option>${contractingOptionsHTML}</select>
+                 <div id="other-agency-container-contractor" class="${showOtherContractor ? '' : 'hidden'} mt-2">
+                     <label for="other-agency-contractor" class="block text-sm font-medium text-gray-700">Please specify the agency:</label>
+                     <input type="text" id="other-agency-contractor" class="form-input w-full mt-1" value="${this.userData.otherAgency}">
+                 </div>
+            </div>
+
+            <div id="military-questions" class="${showMilitary ? '' : 'hidden'} card bg-gray-50 p-4 grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <label for="militaryStatus" class="block text-md font-medium text-gray-700">What is your status?</label>
+                    <select id="militaryStatus" class="form-select w-full mt-1"><option value="">Select Status...</option>${militaryStatusOptionsHTML}</select>
+                </div>
+                <div>
+                    <label for="militaryBranch" class="block text-md font-medium text-gray-700">Which branch of the military?</label>
+                    <select id="militaryBranch" class="form-select w-full mt-1"><option value="">Select Branch...</option>${branchOptionsHTML}</select>
+                </div>
+            </div>
+
+            <div id="location-questions" class="${showLocation ? '' : 'hidden'} card bg-gray-50 p-4 space-y-4 mb-6">
+                 <label for="employmentLocation" class="block text-md font-medium text-gray-700">Where are/were you employed at the time of the incident?</label>
+                 <input type="text" id="employmentLocation" class="form-input w-full mt-1" maxlength="50" placeholder="e.g., Company Name, City Hall, NGO Name" value="${this.userData.employmentLocation}">
+            </div>
+
+            <!-- Common Details Card -->
+            <div class="card bg-gray-50 p-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="positionTitle" class="block text-md font-medium text-gray-700">Position / Title</label>
+                    <input type="text" id="positionTitle" class="form-input w-full mt-1" placeholder="e.g., Senior Analyst" value="${this.userData.positionTitle}">
+                </div>
+                <div>
+                    <label for="employmentStatus" class="block text-md font-medium text-gray-700">What is your current employment status?</label>
+                    <select id="employmentStatus" class="form-select w-full mt-1"><option value="">Select a Status...</option>${statusOptionsHTML}</select>
+                </div>
+                <div class="md:col-span-2">
+                    <label for="industry" class="block text-md font-medium text-gray-700">What is your industry?</label>
+                    <select id="industry" class="form-select w-full mt-1"><option value="">Select an Industry...</option>${industryOptionsHTML}</select>
+                </div>
+                 <div class="md:col-span-2 pt-4 border-t border-gray-200">
+                    <label class="block text-md font-medium text-gray-700">Do you have a security clearance?</label>
+                    <div class="flex space-x-4 mt-2">
+                        <label class="flex items-center"><input type="radio" name="hasClearance" value="yes" class="form-radio h-4 w-4 mr-2" ${this.userData.hasClearance === 'yes' ? 'checked' : ''}>Yes</label>
+                        <label class="flex items-center"><input type="radio" name="hasClearance" value="no" class="form-radio h-4 w-4 mr-2" ${this.userData.hasClearance === 'no' || this.userData.hasClearance === null ? 'checked' : ''}>No</label>
+                    </div>
+                    <div id="clearance-level-container" class="${showClearanceLevel ? '' : 'hidden'} mt-4">
+                         <label for="clearanceLevel" class="block text-sm font-medium text-gray-700">Clearance Level:</label>
+                         <select id="clearanceLevel" class="form-select w-full mt-1"><option value="">Select a Level...</option>${clearanceOptionsHTML}</select>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // --- Add Event Listeners ---
+        const employmentTypeSelect = content.querySelector('#employmentType');
+        const federalDiv = content.querySelector('#federal-employee-questions');
+        const contractorDiv = content.querySelector('#contractor-questions');
+        const militaryDiv = content.querySelector('#military-questions');
+        const locationDiv = content.querySelector('#location-questions');
+        const agencySelect = content.querySelector('#agency');
+        const contractingAgencySelect = content.querySelector('#contractingAgency');
+        const otherAgencyFedContainer = content.querySelector('#other-agency-container-federal');
+        const otherAgencyConContainer = content.querySelector('#other-agency-container-contractor');
+        const clearanceRadios = content.querySelectorAll('input[name="hasClearance"]');
+        const clearanceLevelContainer = content.querySelector('#clearance-level-container');
+
+        // Toggle conditional sections based on employment type
+        if (employmentTypeSelect) {
+            employmentTypeSelect.onchange = (e) => {
+                const selectedType = e.target.value;
+                federalDiv?.classList.toggle('hidden', selectedType !== 'federal');
+                contractorDiv?.classList.toggle('hidden', selectedType !== 'contractor');
+                militaryDiv?.classList.toggle('hidden', selectedType !== 'military');
+                locationDiv?.classList.toggle('hidden', !['non_profit', 'private_sector', 'local_government', 'international'].includes(selectedType));
+                // Hide 'Other' agency inputs when type changes
+                otherAgencyFedContainer?.classList.add('hidden'); 
+                otherAgencyConContainer?.classList.add('hidden');
+                // Reset agency selections if type changes away
+                if (selectedType !== 'federal' && agencySelect) agencySelect.value = '';
+                if (selectedType !== 'contractor' && contractingAgencySelect) contractingAgencySelect.value = '';
+            };
+        }
+        // Toggle 'Other' agency input for Federal
+        if (agencySelect && otherAgencyFedContainer) {
+            agencySelect.onchange = (e) => otherAgencyFedContainer.classList.toggle('hidden', e.target.value !== 'Other');
+        }
+        // Toggle 'Other' agency input for Contractor
+        if (contractingAgencySelect && otherAgencyConContainer) {
+            contractingAgencySelect.onchange = (e) => otherAgencyConContainer.classList.toggle('hidden', e.target.value !== 'Other');
+        }
+        // Toggle Clearance Level dropdown
+        if (clearanceRadios && clearanceLevelContainer) {
+            clearanceRadios.forEach(radio => radio.onchange = (e) => clearanceLevelContainer.classList.toggle('hidden', e.target.value !== 'yes'));
+        }
+
+        content.appendChild(this.createNavigation()); 
+        return content;
+    },
+
+    renderComplaintStep() {
+        const complaints = [
+            { name: "Consumer Product & Food Safety", tooltip: "" },
+            { name: "Discrimination - EEO", tooltip: "U.S. Equal Employment Opportunity Commission" },
+            { name: "Financial Crimes - OIG, Qui Tam, SEC", tooltip: "Office of Inspector General" },
+            { name: "Fraud Waste Abuse - OIG", tooltip: "" },
+            { name: "Harassment - EEO", tooltip: "U.S. Equal Employment Opportunity Commission" },
+            { name: "Mismanagement - OIG", tooltip: "Office of Inspector General" },
+            { name: "OSHA", tooltip: "Occupational Safety and Health Administration" },
+            { name: "Security incidents - OIG", tooltip: "Office of Inspector General" },
+            { name: "Trafficking in persons - OIG", tooltip: "Office of Inspector General" },
+            { name: "Violations of law, rule, or regulation - OIG", tooltip: "Office of Inspector General" }
+        ];
+        
+        // Generate HTML for each checkbox, including tooltip structure if applicable
+        const complaintCheckboxesHTML = complaints.map(complaint => {
+            const hasTooltipClass = complaint.tooltip ? 'tooltip' : '';
+            const tooltipSpan = complaint.tooltip ? `<span class="tooltip-text">${complaint.tooltip}</span>` : '';
+            const isChecked = this.userData.complaints.has(complaint.name);
+            return `
+                <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 ${hasTooltipClass}">
+                    <input type="checkbox" name="complaint" value="${complaint.name}" 
+                           class="form-checkbox h-5 w-5 mr-3 text-blue-600" ${isChecked ? 'checked' : ''}>
+                    <span>${complaint.name}</span>
+                    ${tooltipSpan}
+                </label>`;
+        }).join('');
+
+        const content = document.createElement('div');
+        content.className = 'step-content';
+        content.innerHTML = `
+            <h2 class="font-heading text-xl font-bold text-gray-800 mb-4">Step 2: Type of Complaint</h2>
+            <p class="text-gray-600 mb-6">Select all categories that apply. Hover over items for details.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                ${complaintCheckboxesHTML}
+                <!-- 'Other' Checkbox -->
+                <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                    <input type="checkbox" id="complaint-other-checkbox" name="complaint" value="Other" 
+                           class="form-checkbox h-5 w-5 mr-3 text-blue-600" ${this.userData.otherComplaint ? 'checked' : ''}>
+                    <span>Other</span>
+                </label>
+            </div>
+            <!-- 'Other' Text Input Container -->
+            <div id="complaint-other-container" class="${this.userData.otherComplaint ? '' : 'hidden'} mt-4">
+                <label for="complaint-other-text" class="block text-md font-medium text-gray-700">Please specify "Other" complaint (50 char. max):</label>
+                <input type="text" id="complaint-other-text" class="form-input w-full mt-1" maxlength="50" 
+                       value="${this.userData.otherComplaint}">
+            </div>
+        `;
+        
+        // --- Add Event Listeners ---
+        const otherCheckbox = content.querySelector('#complaint-other-checkbox');
+        const otherContainer = content.querySelector('#complaint-other-container');
+        const otherText = content.querySelector('#complaint-other-text');
+
+        // Toggle 'Other' text input visibility
+        if (otherCheckbox) {
+            otherCheckbox.onchange = (e) => {
+                otherContainer?.classList.toggle('hidden', !e.target.checked);
+                // Clear text and saved data if 'Other' is unchecked
+                if (!e.target.checked && otherText) {
+                    otherText.value = ''; 
+                    this.userData.otherComplaint = ''; 
+                }
+            };
+        }
+        // Save 'Other' text input value immediately (on input)
+        if (otherText) {
+            otherText.oninput = (e) => { 
+                // Only save if the 'Other' checkbox is actually checked
+                if (otherCheckbox?.checked) { 
+                     this.userData.otherComplaint = e.target.value.trim();
+                }
+            }
+        }
+        // Add listeners to standard complaint checkboxes to update the Set
+        content.querySelectorAll('input[name="complaint"]:not([value="Other"])').forEach(checkbox => {
+             checkbox.onchange = (e) => {
+                 if (e.target.checked) {
+                     this.userData.complaints.add(e.target.value);
+                 } else {
+                     this.userData.complaints.delete(e.target.value);
+                 }
+            };
+        });
+
+        content.appendChild(this.createNavigation()); 
+        return content;
+    },
+
+    // Helper function to create harm checkbox HTML
+    createHarmCheckbox(value) {
+        const isChecked = this.userData.harmTypes.has(value);
+        return `
+            <label class="flex items-start p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                <input type="checkbox" name="harmType" value="${value}" 
+                       class="form-checkbox h-4 w-4 mr-3 mt-1 flex-shrink-0" ${isChecked ? 'checked' : ''}>
+                <span>${value}</span>
+            </label>
+        `;
+    },
+
+    renderNarrativeStep() {
+        const content = document.createElement('div');
+        content.className = 'step-content';
+        // HTML structure with dropdown and checkboxes
+        content.innerHTML = `
+            <h2 class="font-heading text-xl font-bold text-gray-800 mb-4">Step 3: Your Narrative</h2>
+            <p class="text-gray-600 mb-6">Describe the events in your own words.</p>
+            
+            <div class="card bg-gray-50 p-4 space-y-4">
+                <div>
+                    <label for="wrongdoingExperience" class="block text-md font-medium text-gray-700">How did you experience the wrongdoing?</label>
+                    <select id="wrongdoingExperience" class="form-select w-full mt-2">
+                        <option value="">Select an option...</option>
+                        <option value="direct" ${this.userData.wrongdoingExperienceType === 'direct' ? 'selected' : ''}>It happened to me directly</option>
+                        <option value="witnessed" ${this.userData.wrongdoingExperienceType === 'witnessed' ? 'selected' : ''}>I witnessed it</option>
+                        <option value="learned" ${this.userData.wrongdoingExperienceType === 'learned' ? 'selected' : ''}>I learned about it happening to colleagues, beneficiaries, or the public</option>
+                    </select>
+                </div>
+
+                <div class="pt-4 border-t">
+                    <label class="block text-md font-medium text-gray-700">What harm was involved in the wrongdoing? (Select all that apply)</label>
+                    <div class="flex flex-col space-y-2 mt-2">
+                        ${this.createHarmCheckbox('contamination, environmental hazards, toxic exposures to the public or potential accidents')}
+                        ${this.createHarmCheckbox('crime, espionage, sabotage, theft')}
+                        ${this.createHarmCheckbox('medical error or non-compliance with protocols, patient safety, death, suicide')}
+                        ${this.createHarmCheckbox('misuse of funds, waste, fraud, abuse of authority, impartiality/favoritism')}
+                        ${this.createHarmCheckbox('physical or sexual harassment, physical or emotional abuse, bullying, violence')}
+                        ${this.createHarmCheckbox('racial, ethnic, gender, LGBTQ, age, marital status, disability, veteran, discrimination')}
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-gray-50 p-4 mt-6">
+                <label for="narrative-textarea" class="block text-md font-medium text-gray-700">Please provide your narrative:</label>
+                <textarea id="narrative-textarea" class="form-textarea w-full h-64 mt-2" 
+                          placeholder="Start writing here...">${this.userData.narrative}</textarea>
+            </div>
+        `;
+
+        // --- Add Event Listeners ---
+        const narrativeTextarea = content.querySelector('#narrative-textarea');
+        if (narrativeTextarea) {
+            // Save narrative immediately on input for better UX
+            narrativeTextarea.oninput = (e) => { this.userData.narrative = e.target.value; }; 
+        }
+        
+        const wrongdoingSelect = content.querySelector('#wrongdoingExperience');
+        if (wrongdoingSelect) {
+            // Save dropdown selection immediately on change
+            wrongdoingSelect.onchange = (e) => {
+                this.userData.wrongdoingExperienceType = e.target.value;
+            };
+        }
+
+        // Add listeners to harm checkboxes to update the Set
+        content.querySelectorAll('input[name="harmType"]').forEach(checkbox => {
+            checkbox.onchange = (e) => {
+                if (e.target.checked) {
+                    this.userData.harmTypes.add(e.target.value);
+                } else {
+                    this.userData.harmTypes.delete(e.target.value);
+                }
+            };
+        });
+
+        content.appendChild(this.createNavigation()); 
+        return content;
+    },
+    
+    // Helper to create Yes/No radio button groups
+    createYesNoQuestion(name, label, currentValue) {
+        return `
+            <div class="card bg-gray-100 p-4 rounded-lg"> 
+                 <label class="block text-md font-medium text-gray-700">${label}</label>
+                 <div class="flex space-x-4 mt-2">
+                     <label class="flex items-center cursor-pointer">
+                         <input type="radio" name="${name}" value="yes" class="form-radio h-4 w-4 mr-2" 
+                                ${currentValue === 'yes' ? 'checked' : ''}>Yes
+                     </label>
+                     <label class="flex items-center cursor-pointer">
+                         <input type="radio" name="${name}" value="no" class="form-radio h-4 w-4 mr-2" 
+                                ${currentValue === 'no' || currentValue === null ? 'checked' : ''}>No
+                     </label>
+                 </div>
+            </div>
+        `;
+    },
+
+    renderTimelineStep() {
+        const retaliationTechniques = [
+            { name: "Accusing", tooltip: "Fabricating claims of insubordination or misconduct to discredit." },
+            { name: "Bullying", tooltip: "Threatening to harm the person or others they care about." },
+            { name: "Devaluing", tooltip: "Undermining their work, crediting others, or using overly harsh performance." },
+            { name: "Double-binding", tooltip: "Overloading them with impossible tasks, then blaming them for failure." },
+            { name: "Gagging", tooltip: "Threatening defamation suits, misuse of NDAs, or wrongful claims of property theft." },
+            { name: "Gaslighting", tooltip: "Dismissing concerns, questioning their memory or perception." },
+            { name: "Marginalizing", tooltip: "Isolating the whistleblower, removing meaningful duties, or assigning only trivial." },
+            { name: "Mobbing", tooltip: "Coordinated harassment by coworkers, spreading rumors or humiliating them." },
+            { name: "Shunning", tooltip: "Exclusion from meetings or decision-making, social isolation." }
+        ];
+        
+        // Generate HTML for retaliation checkboxes
+        const retaliationCheckboxesHTML = retaliationTechniques.map(tech => {
+            const isChecked = this.userData.retaliationTechniques.has(tech.name);
+            return `
+                <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 tooltip">
+                    <input type="checkbox" name="retaliationTechnique" value="${tech.name}" 
+                           class="form-checkbox h-5 w-5 mr-3 text-blue-600" ${isChecked ? 'checked' : ''}>
+                    <span>${tech.name}</span>
+                    <span class="tooltip-text">${tech.tooltip}</span>
+                </label>`;
+        }).join('');
+
+        const content = document.createElement('div');
+        content.className = 'step-content';
+        content.innerHTML = `
+            <h2 class="font-heading text-xl font-bold text-gray-800 mb-4">Step 4: Reporting, Retaliation & Impact</h2>
+            <p class="text-gray-600 mb-6">Provide details about reports, retaliation, timeline, and impact.</p>
+            <div class="space-y-6">
+                <!-- Reporting Section -->
+                <div class="card bg-gray-50 p-4">
+                     <h3 class="font-heading text-lg font-bold text-gray-700 mb-3 border-b pb-2">Reporting</h3>
+                    <div class="space-y-4">
+                        <label class="block text-md font-medium text-gray-700">Have you reported the incident?</label>
+                        <div class="flex space-x-4">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="reportedIncident" value="yes" class="form-radio h-4 w-4 mr-2" ${this.userData.hasReportedIncident === 'yes' ? 'checked' : ''}>Yes</label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="reportedIncident" value="no" class="form-radio h-4 w-4 mr-2" ${this.userData.hasReportedIncident === 'no' || this.userData.hasReportedIncident === null ? 'checked' : ''}>No</label>
+                        </div>
+                    </div>
+                    <div id="reporting-details" class="${this.userData.hasReportedIncident === 'yes' ? '' : 'hidden'} mt-4 pt-4 border-t space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Was it an internal or external disclosure?</label>
+                            <div class="flex space-x-4 mt-2">
+                                <label class="flex items-center cursor-pointer"><input type="radio" name="reportType" value="internal" class="form-radio h-4 w-4 mr-2" ${this.userData.reportType === 'internal' ? 'checked' : ''}>Internal</label>
+                                <label class="flex items-center cursor-pointer"><input type="radio" name="reportType" value="external" class="form-radio h-4 w-4 mr-2" ${this.userData.reportType === 'external' ? 'checked' : ''}>External</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Was it a protected disclosure?</label>
+                            <div class="flex space-x-4 mt-2">
+                                <label class="flex items-center cursor-pointer"><input type="radio" name="protectedDisclosure" value="yes" class="form-radio h-4 w-4 mr-2" ${this.userData.isProtectedDisclosure === 'yes' ? 'checked' : ''}>Yes</label>
+                                <label class="flex items-center cursor-pointer"><input type="radio" name="protectedDisclosure" value="no" class="form-radio h-4 w-4 mr-2" ${this.userData.isProtectedDisclosure === 'no' ? 'checked' : ''}>No</label>
+                                <label class="flex items-center cursor-pointer"><input type="radio" name="protectedDisclosure" value="unsure" class="form-radio h-4 w-4 mr-2" ${this.userData.isProtectedDisclosure === 'unsure' ? 'checked' : ''}>Unsure</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Retaliation Section -->
+                <div class="card bg-gray-50 p-4">
+                    <h3 class="font-heading text-lg font-bold text-gray-700 mb-3 border-b pb-2">Retaliation</h3>
+                    <div class="space-y-4">
+                        <label class="block text-md font-medium text-gray-700">Have you been retaliated against?</label>
+                        <div class="flex space-x-4">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="retaliatedAgainst" value="yes" class="form-radio h-4 w-4 mr-2" ${this.userData.hasBeenRetaliatedAgainst === 'yes' ? 'checked' : ''}>Yes</label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="retaliatedAgainst" value="no" class="form-radio h-4 w-4 mr-2" ${this.userData.hasBeenRetaliatedAgainst === 'no' || this.userData.hasBeenRetaliatedAgainst === null ? 'checked' : ''}>No</label>
+                        </div>
+                    </div>
+                    <div id="retaliation-details" class="${this.userData.hasBeenRetaliatedAgainst === 'yes' ? '' : 'hidden'} mt-4 pt-4 border-t">
+                        <label class="block text-sm font-medium text-gray-700 mb-3">Select retaliation techniques experienced (hover for details):</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${retaliationCheckboxesHTML}</div>
+                    </div>
+                </div>
+                
+                <!-- Impact Assessment Section -->
+                <div class="card bg-gray-50 p-4 space-y-4">
+                     <h3 class="font-heading text-lg font-bold text-gray-700 mb-3 border-b pb-2">Impact Assessment</h3>
+                    ${this.createYesNoQuestion('involvedHarmRisk', 'Did the situation involve actual or threatened harm, violence, or risk of death to you or others?', this.userData.involvedHarmRisk)}
+                    ${this.createYesNoQuestion('hostileEnvironment', 'Do you work in a hostile work environment?', this.userData.hostileEnvironment)}
+                    ${this.createYesNoQuestion('qualityOfLifeChanged', 'Has your quality of life changed since whistleblowing?', this.userData.qualityOfLifeChanged)}
+                    ${this.createYesNoQuestion('storyInPublicDomain', 'Is your story in the public domain making you a target?', this.userData.storyInPublicDomain)}
+                </div>
+                
+                <!-- Timeline Builder -->
+                <div class="card bg-gray-50 p-4">
+                    <h3 class="font-heading text-lg font-bold text-gray-700 mb-3 border-b pb-2">Timeline Builder</h3>
+                    <p class="text-sm text-gray-600 mb-4">Add key dates and events chronologically.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="date-started" class="block text-sm font-medium text-gray-700">Date you started position *</label>
+                            <input type="date" id="date-started" class="form-input w-full mt-1" value="${this.userData.dateStarted}">
+                        </div>
+                        <div>
+                            <label for="date-identified" class="block text-sm font-medium text-gray-700">Date you identified wrongdoing *</label>
+                            <input type="date" id="date-identified" class="form-input w-full mt-1" value="${this.userData.dateIdentifiedWrongdoing}">
+                        </div>
+                    </div>
+                    <div id="timeline-list" class="space-y-4 mb-6 border-t pt-4">
+                        <!-- Timeline items will be rendered here -->
+                    </div>
+                    <h4 class="font-heading text-md font-bold text-gray-700 mb-3 pt-4 border-t">Add Subsequent Event</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                        <div class="md:col-span-2">
+                            <label for="event-date" class="block text-sm font-medium text-gray-700">Date *</label>
+                            <input type="date" id="event-date" class="form-input w-full mt-1">
+                        </div>
+                        <div class="md:col-span-3">
+                            <label for="event-description" class="block text-sm font-medium text-gray-700">Event Description *</label>
+                            <input type="text" id="event-description" class="form-input w-full mt-1" placeholder="e.g., 'Reported to supervisor', 'Received negative review'">
+                        </div>
+                    </div>
+                    <div class="text-right mt-4">
+                        <button id="add-event-btn" class="btn btn-secondary text-sm"><i class="fas fa-plus mr-2"></i>Add Event</button>
+                    </div>
+                </div>
+            </div>`; // End of main space-y-6 container
+
+        // --- Add Event Listeners ---
+        const reportedRadios = content.querySelectorAll('input[name="reportedIncident"]');
+        const retaliatedRadios = content.querySelectorAll('input[name="retaliatedAgainst"]');
+        const reportingDetails = content.querySelector('#reporting-details');
+        const retaliationDetails = content.querySelector('#retaliation-details');
+
+        // Toggle visibility of conditional sections
+        if (reportedRadios && reportingDetails) {
+            reportedRadios.forEach(radio => radio.onchange = (e) => reportingDetails.classList.toggle('hidden', e.target.value !== 'yes'));
+        }
+        if (retaliatedRadios && retaliationDetails) {
+            retaliatedRadios.forEach(radio => radio.onchange = (e) => retaliationDetails.classList.toggle('hidden', e.target.value !== 'yes'));
+        }
+        
+        // Timeline functionality
+        const listContainer = content.querySelector('#timeline-list');
+        const addButton = content.querySelector('#add-event-btn');
+        const dateInput = content.querySelector('#event-date');
+        const descInput = content.querySelector('#event-description');
+
+        const renderTimelineItems = () => {
+             if (!listContainer) return;
+            listContainer.innerHTML = ''; // Clear current items
+            if (this.userData.timeline.length === 0) {
+                listContainer.innerHTML = `<p class="text-gray-500 text-center text-sm italic">No subsequent events added yet.</p>`;
+            } else {
+                // Sort events by date before rendering
+                this.userData.timeline.sort((a,b) => new Date(a.date) - new Date(b.date)).forEach((event, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'flex items-start bg-white border p-3 rounded-lg text-sm shadow-sm';
+                    item.innerHTML = `
+                        <div class="font-medium text-blue-800 mr-4 w-28 flex-shrink-0">${event.date || 'No Date'}</div>
+                        <div class="flex-grow text-gray-700">${event.description || 'No Description'}</div>
+                        <button data-index="${index}" class="remove-event-btn text-red-500 hover:text-red-700 ml-4 p-1 flex-shrink-0">
+                            <i class="fas fa-trash-alt fa-xs"></i>
+                        </button>
+                    `;
+                     // Add delete functionality to each button
+                     item.querySelector('.remove-event-btn').onclick = (e) => {
+                         const idxToRemove = parseInt(e.currentTarget.dataset.index, 10);
+                         this.userData.timeline.splice(idxToRemove, 1);
+                         renderTimelineItems(); // Re-render the list
+                     };
+                    listContainer.appendChild(item);
+                });
+            }
+        };
+
+        // Add event button listener
+        if (addButton && dateInput && descInput) {
+            addButton.onclick = () => {
+                if (dateInput.value && descInput.value.trim()) {
+                    this.userData.timeline.push({ 
+                        date: dateInput.value, 
+                        description: descInput.value.trim() 
+                    });
+                    renderTimelineItems(); // Update the displayed list
+                    dateInput.value = ''; // Clear inputs
+                    descInput.value = '';
+                } else {
+                    alert("Please provide both a date and a description for the event.");
+                }
+            };
+        }
+
+        renderTimelineItems(); // Initial render of timeline items
+        content.appendChild(this.createNavigation()); 
+        return content;
+    },
+
+    renderSummaryStep() {
+        const content = document.createElement('div');
+        
+        // Helper to format Yes/No/Unsure answers nicely
+        const formatYesNo = (value) => {
+            if (value === 'yes') return 'Yes';
+            if (value === 'no') return 'No';
+            if (value === 'unsure') return 'Unsure';
+            return 'Not Specified';
+        };
+        // Helper to format lists or show 'None'
+        const formatList = (items) => {
+            if (!items || items.size === 0) return '<li>None Specified</li>';
+            return [...items].map(item => `<li>${item}</li>`).join('');
+        };
+        // Helper to format potentially long text like narrative
+        const formatText = (text) => {
+            if (!text) return "Not Provided.";
+            // Replace newlines with <br> for HTML display
+            return text.replace(/\n/g, '<br>');
+        };
+        // Helper to format employment type names
+        const formatEmpType = (type) => {
+             switch(type) {
+                 case 'federal': return 'Federal Employee';
+                 case 'contractor': return 'Federal Contractor';
+                 case 'military': return 'Military';
+                 case 'non_profit': return 'Non Profit';
+                 case 'private_sector': return 'Private Sector';
+                 case 'local_government': return 'Local Government';
+                 case 'international': return 'International (Outside U.S.)';
+                 default: return 'Not Specified';
+             }
+        };
+
+        // Build summary sections using helpers
+        let employmentSummary = `<p><strong>Employment Type:</strong> ${formatEmpType(this.userData.employmentType)}</p>`;
+        if (this.userData.employmentType === 'federal') employmentSummary += `<p><strong>Agency:</strong> ${this.userData.agency || 'Not Specified'}</p>`;
+        if (this.userData.employmentType === 'contractor') employmentSummary += `<p><strong>Contracting Agency:</strong> ${this.userData.contractingAgency || 'Not Specified'}</p>`;
+        if (this.userData.employmentType === 'military') {
+             employmentSummary += `<p><strong>Branch:</strong> ${this.userData.militaryBranch || 'Not Specified'}</p>`;
+             employmentSummary += `<p><strong>Status:</strong> ${this.userData.militaryStatus || 'Not Specified'}</p>`;
+        }
+        if (['non_profit', 'private_sector', 'local_government', 'international'].includes(this.userData.employmentType)) {
+             employmentSummary += `<p><strong>Employment Location/Organization:</strong> ${this.userData.employmentLocation || 'Not Specified'}</p>`;
+        }
+        employmentSummary += `<p><strong>Position/Title:</strong> ${this.userData.positionTitle || 'Not Specified'}</p>`;
+        employmentSummary += `<p><strong>Employment Status:</strong> ${this.userData.employmentStatus || 'Not Specified'}</p>`;
+        employmentSummary += `<p><strong>Industry:</strong> ${this.userData.industry || 'Not Specified'}</p>`;
+        if (this.userData.hasClearance === 'yes') {
+            employmentSummary += `<p><strong>Security Clearance:</strong> ${this.userData.clearanceLevel || 'Yes (Level Not Specified)'}</p>`;
+        } else {
+             employmentSummary += `<p><strong>Security Clearance:</strong> No</p>`;
+        }
+
+        let complaintsSummary = `<ul>${formatList(this.userData.complaints)}`;
+        if (this.userData.otherComplaint) complaintsSummary += `<li>Other: ${this.userData.otherComplaint}</li>`;
+        complaintsSummary += `</ul>`;
+
+        let wrongdoingExperienceSummary = '<p><strong>How wrongdoing was experienced:</strong> ';
+        switch (this.userData.wrongdoingExperienceType) {
+            case 'direct': wrongdoingExperienceSummary += 'It happened to me directly.</p>'; break;
+            case 'witnessed': wrongdoingExperienceSummary += 'I witnessed it.</p>'; break;
+            case 'learned': wrongdoingExperienceSummary += 'I learned about it happening to others.</p>'; break;
+            default: wrongdoingExperienceSummary += 'Not Specified</p>'; break;
+        }
+
+        const harmTypesSummary = `<p><strong>Harm involved:</strong></p><ul>${formatList(this.userData.harmTypes)}</ul>`;
+
+        let timelineTable = '<p>No subsequent events recorded.</p>';
+        if (this.userData.timeline.length > 0) {
+            timelineTable = `
+            <table class="w-full text-left border-collapse mt-2">
+                <thead><tr><th class="border p-2 font-bold bg-gray-100">Date</th><th class="border p-2 font-bold bg-gray-100">Description</th></tr></thead>
+                <tbody>
+                ${this.userData.timeline.sort((a,b) => new Date(a.date) - new Date(b.date)).map(e => `<tr><td class="border p-2 align-top w-32">${e.date || 'N/A'}</td><td class="border p-2 align-top">${e.description || 'N/A'}</td></tr>`).join('')}
+                </tbody>
+            </table>`;
+        }
+
+        let reportingSummary = `<p><strong>Incident Reported:</strong> ${formatYesNo(this.userData.hasReportedIncident)}</p>`;
+        if (this.userData.hasReportedIncident === 'yes') {
+            reportingSummary += `<p><strong>Disclosure Type:</strong> ${this.userData.reportType || 'Not Specified'}</p>`;
+            reportingSummary += `<p><strong>Considered Protected Disclosure:</strong> ${formatYesNo(this.userData.isProtectedDisclosure)}</p>`;
+        }
+
+        let retaliationSummary = `<p><strong>Retaliation Experienced:</strong> ${formatYesNo(this.userData.hasBeenRetaliatedAgainst)}</p>`;
+        if (this.userData.hasBeenRetaliatedAgainst === 'yes') {
+            retaliationSummary += `<p><strong>Observed Retaliation Techniques:</strong></p><ul>${formatList(this.userData.retaliationTechniques)}</ul>`;
+        }
+        
+        const impactSummary = `
+            <p><strong>Involved Harm/Risk:</strong> ${formatYesNo(this.userData.involvedHarmRisk)}</p>
+            <p><strong>Hostile Work Environment:</strong> ${formatYesNo(this.userData.hostileEnvironment)}</p>
+            <p><strong>Quality of Life Changed:</strong> ${formatYesNo(this.userData.qualityOfLifeChanged)}</p>
+            <p><strong>Story in Public Domain:</strong> ${formatYesNo(this.userData.storyInPublicDomain)}</p>
+        `;
+
+        content.className = 'step-content';
+        // Use the #printableArea div for print styling control
+        content.innerHTML = `
+            <h2 class="font-heading text-xl font-bold text-gray-800 mb-4 no-print">Step 5: Review & Print</h2>
+            <p class="text-gray-600 mb-6 no-print">Review the information below. Use the "Print" button to generate a document for your attorney.</p>
+            
+            <div id="printableArea" class="prose max-w-none space-y-4"> 
+                <!-- Print styles are applied via @media print -->
+                
+                <h1>WRAP Toolkit Summary</h1>
+                ${this.userData.nameAlias ? `<p><strong>Case Prepared for:</strong> ${this.userData.nameAlias}</p>` : ''}
+                <p><em>Generated: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}</em></p>
+                
+                <hr class="no-print my-6"> 
+                <h2>I. Employment Details</h2>
+                ${employmentSummary}
+                
+                <hr class="no-print my-6"> 
+                <h2 class="page-break">II. Types of Complaints</h2>
+                ${complaintsSummary}
+                
+                <hr class="no-print my-6"> 
+                <h2 class="page-break">III. Narrative of Events</h2>
+                ${wrongdoingExperienceSummary} 
+                ${harmTypesSummary}
+                <h3 class="font-heading">Narrative:</h3>
+                <p>${formatText(this.userData.narrative)}</p>
+                
+                <hr class="no-print my-6"> 
+                <h2 class="page-break">IV. Timeline of Key Events</h2>
+                <p><strong>Date Started Position:</strong> ${this.userData.dateStarted || 'Not specified'}</p>
+                <p><strong>Date Identified Wrongdoing:</strong> ${this.userData.dateIdentifiedWrongdoing || 'Not specified'}</p>
+                ${timelineTable}
+                
+                <hr class="no-print my-6"> 
+                <h2 class="page-break">V. Reporting & Retaliation</h2>
+                ${reportingSummary} 
+                <div class="mt-4">${retaliationSummary}</div> 
+
+                <hr class="no-print my-6"> 
+                <h2 class="page-break">VI. Impact Assessment</h2>
+                ${impactSummary} 
+            </div>
+        `;
+        
+        content.appendChild(this.createNavigation()); 
+        return content;
+    },
+};
+
+// --- Initialize ---
+// Wait for the DOM to be fully loaded before initializing the app
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if the main container exists before trying to initialize
+    if(document.getElementById('steps-container')) {
+        try {
+            app.init(); // Start the application
+        } catch (e) {
+            console.error("Critical error during app initialization:", e);
+            // Display a user-friendly error message if init fails
+            const mainCard = document.getElementById('main-card');
+            if (mainCard) {
+                mainCard.innerHTML = `<p class="text-red-600 text-center font-bold p-6">A critical error occurred while starting the application. Please reload the page. Details: ${e.message}</p>`;
+            } else {
+                 document.body.innerHTML = '<p class="text-red-600 text-center font-bold mt-10">Critical Error: Application could not load correctly.</p>';
+            }
+        }
+    } else {
+        // This should not happen if the HTML is correct, but added as a safeguard
+        console.error("App initialization failed: Required element #steps-container not found in HTML.");
+        document.body.innerHTML = '<p class="text-red-600 text-center font-bold mt-10">Error: Application HTML structure is missing or incorrect.</p>';
+    }
+});
+</script>
+
+</body>
+</html>
+
+
+
