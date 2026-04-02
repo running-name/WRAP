@@ -403,9 +403,10 @@ const app = {
                 
                 this.userData.retaliationTechniques.clear();
                 if(this.userData.hasBeenRetaliatedAgainst === 'yes') {
-                    document.querySelectorAll('input[name="retaliationTechnique"]:checked').forEach(box => {
-                        this.userData.retaliationTechniques.add(box.value);
-                    });
+                    const selectedTechnique = document.querySelector('input[name="retaliationTechnique"]:checked');
+                    if (selectedTechnique) {
+                        this.userData.retaliationTechniques.add(selectedTechnique.value);
+                    }
                 }
                 // Save impact assessment answers
                 const involvedHarmRadio = document.querySelector('input[name="involvedHarmRisk"]:checked');
@@ -941,7 +942,7 @@ Thank you.
                      </label>
                      <label class="flex items-center cursor-pointer">
                          <input type="radio" name="${name}" value="no" class="form-radio h-4 w-4 mr-2" 
-                                ${currentValue === 'no' || currentValue === null ? 'checked' : ''}>No
+                                ${currentValue === 'no' ? 'checked' : ''}>No
                      </label>
                  </div>
             </div>
@@ -961,13 +962,13 @@ Thank you.
             { name: "Shunning", tooltip: "Exclusion from meetings or decision-making, social isolation." }
         ];
         
-        // Generate HTML for retaliation checkboxes
+        // Generate HTML for retaliation technique radio buttons (single-select)
         const retaliationCheckboxesHTML = retaliationTechniques.map(tech => {
             const isChecked = this.userData.retaliationTechniques.has(tech.name);
             return `
                 <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 tooltip">
-                    <input type="checkbox" name="retaliationTechnique" value="${tech.name}" 
-                           class="form-checkbox h-5 w-5 mr-3 text-blue-600" ${isChecked ? 'checked' : ''}>
+                    <input type="radio" name="retaliationTechnique" value="${tech.name}" 
+                           class="form-radio h-5 w-5 mr-3 text-blue-600" ${isChecked ? 'checked' : ''}>
                     <span>${tech.name}</span>
                     <span class="tooltip-text">${tech.tooltip}</span>
                 </label>`;
@@ -986,7 +987,7 @@ Thank you.
                         <label class="block text-md font-medium text-gray-700">Have you reported the incident?</label>
                         <div class="flex space-x-4">
                             <label class="flex items-center cursor-pointer"><input type="radio" name="reportedIncident" value="yes" class="form-radio h-4 w-4 mr-2" ${this.userData.hasReportedIncident === 'yes' ? 'checked' : ''}>Yes</label>
-                            <label class="flex items-center cursor-pointer"><input type="radio" name="reportedIncident" value="no" class="form-radio h-4 w-4 mr-2" ${this.userData.hasReportedIncident === 'no' || this.userData.hasReportedIncident === null ? 'checked' : ''}>No</label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="reportedIncident" value="no" class="form-radio h-4 w-4 mr-2" ${this.userData.hasReportedIncident === 'no' ? 'checked' : ''}>No</label>
                         </div>
                     </div>
                     <div id="reporting-details" class="${this.userData.hasReportedIncident === 'yes' ? '' : 'hidden'} mt-4 pt-4 border-t space-y-4">
@@ -1015,7 +1016,7 @@ Thank you.
                         <label class="block text-md font-medium text-gray-700">Have you been retaliated against?</label>
                         <div class="flex space-x-4">
                             <label class="flex items-center cursor-pointer"><input type="radio" name="retaliatedAgainst" value="yes" class="form-radio h-4 w-4 mr-2" ${this.userData.hasBeenRetaliatedAgainst === 'yes' ? 'checked' : ''}>Yes</label>
-                            <label class="flex items-center cursor-pointer"><input type="radio" name="retaliatedAgainst" value="no" class="form-radio h-4 w-4 mr-2" ${this.userData.hasBeenRetaliatedAgainst === 'no' || this.userData.hasBeenRetaliatedAgainst === null ? 'checked' : ''}>No</label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="retaliatedAgainst" value="no" class="form-radio h-4 w-4 mr-2" ${this.userData.hasBeenRetaliatedAgainst === 'no' ? 'checked' : ''}>No</label>
                         </div>
                     </div>
                     <div id="retaliation-details" class="${this.userData.hasBeenRetaliatedAgainst === 'yes' ? '' : 'hidden'} mt-4 pt-4 border-t">
