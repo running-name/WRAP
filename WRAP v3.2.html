@@ -359,18 +359,19 @@ const app = {
                 }
             }
             else if (this.currentStep === 2) { // Complaint Step
-                this.userData.complaints.clear();
-                this.userData.otherComplaint = ""; 
-                let otherIsChecked = false;
-                document.querySelectorAll('input[name="complaint"]:checked').forEach(box => {
-                    if (box.value === 'Other') {
-                        otherIsChecked = true;
+                const selectedComplaint = document.querySelector('input[name="complaint"]:checked');
+                if (selectedComplaint) {
+                    if (selectedComplaint.value === 'Other') {
+                        this.userData.complaints.clear();
+                        this.userData.otherComplaint = document.getElementById('complaint-other-text')?.value?.trim() || '';
                     } else {
-                        this.userData.complaints.add(box.value);
+                        this.userData.complaints.clear();
+                        this.userData.complaints.add(selectedComplaint.value);
+                        this.userData.otherComplaint = '';
                     }
-                });
-                if (otherIsChecked) {
-                    this.userData.otherComplaint = document.getElementById('complaint-other-text')?.value?.trim() || '';
+                } else {
+                    this.userData.complaints.clear();
+                    this.userData.otherComplaint = '';
                 }
             }
             else if (this.currentStep === 3) { // Narrative step
@@ -442,14 +443,14 @@ const app = {
             if (this.userData.hasClearance === 'yes' && !this.userData.clearanceLevel) { alert("Please select your clearance level."); return false; }
         }
         else if (this.currentStep === 2) { // Complaint Step
-            const otherChecked = document.getElementById('complaint-other-checkbox')?.checked;
-            if (this.userData.complaints.size === 0 && (!otherChecked || !this.userData.otherComplaint)) {
-                alert("Please select at least one type of complaint or specify 'Other'.");
+            const selectedComplaint = document.querySelector('input[name="complaint"]:checked');
+            if (!selectedComplaint) {
+                alert("Please select a type of complaint.");
                 return false;
             }
-            if (otherChecked && !this.userData.otherComplaint) {
-                 alert("Please specify your 'Other' complaint.");
-                 return false;
+            if (selectedComplaint.value === 'Other' && !this.userData.otherComplaint) {
+                alert("Please specify your 'Other' complaint.");
+                return false;
             }
         }
         else if (this.currentStep === 3) { // Narrative step
@@ -703,7 +704,7 @@ Thank you.
                     <label class="block text-md font-medium text-gray-700">Do you have a security clearance?</label>
                     <div class="flex space-x-4 mt-2">
                         <label class="flex items-center"><input type="radio" name="hasClearance" value="yes" class="form-radio h-4 w-4 mr-2" ${this.userData.hasClearance === 'yes' ? 'checked' : ''}>Yes</label>
-                        <label class="flex items-center"><input type="radio" name="hasClearance" value="no" class="form-radio h-4 w-4 mr-2" ${this.userData.hasClearance === 'no' || this.userData.hasClearance === null ? 'checked' : ''}>No</label>
+                        <label class="flex items-center"><input type="radio" name="hasClearance" value="no" class="form-radio h-4 w-4 mr-2" ${this.userData.hasClearance === 'no' ? 'checked' : ''}>No</label>
                     </div>
                     <div id="clearance-level-container" class="${showClearanceLevel ? '' : 'hidden'} mt-4">
                          <label for="clearanceLevel" class="block text-sm font-medium text-gray-700">Clearance Level:</label>
@@ -773,15 +774,15 @@ Thank you.
             { name: "Violations of law, rule, or regulation - OIG", tooltip: "Office of Inspector General" }
         ];
         
-        // Generate HTML for each checkbox, including tooltip structure if applicable
+        // Generate HTML for each radio button, including tooltip structure if applicable
         const complaintCheckboxesHTML = complaints.map(complaint => {
             const hasTooltipClass = complaint.tooltip ? 'tooltip' : '';
             const tooltipSpan = complaint.tooltip ? `<span class="tooltip-text">${complaint.tooltip}</span>` : '';
             const isChecked = this.userData.complaints.has(complaint.name);
             return `
                 <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 ${hasTooltipClass}">
-                    <input type="checkbox" name="complaint" value="${complaint.name}" 
-                           class="form-checkbox h-5 w-5 mr-3 text-blue-600" ${isChecked ? 'checked' : ''}>
+                    <input type="radio" name="complaint" value="${complaint.name}" 
+                           class="form-radio h-5 w-5 mr-3 text-blue-600" ${isChecked ? 'checked' : ''}>
                     <span>${complaint.name}</span>
                     ${tooltipSpan}
                 </label>`;
@@ -791,13 +792,13 @@ Thank you.
         content.className = 'step-content';
         content.innerHTML = `
             <h2 class="font-heading text-xl font-bold text-gray-800 mb-4">Step 2: Type of Complaint</h2>
-            <p class="text-gray-600 mb-6">Select all categories that apply. Hover over items for details.</p>
+            <p class="text-gray-600 mb-6">Select the category that applies. Hover over items for details.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 ${complaintCheckboxesHTML}
-                <!-- 'Other' Checkbox -->
+                <!-- 'Other' Radio -->
                 <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
-                    <input type="checkbox" id="complaint-other-checkbox" name="complaint" value="Other" 
-                           class="form-checkbox h-5 w-5 mr-3 text-blue-600" ${this.userData.otherComplaint ? 'checked' : ''}>
+                    <input type="radio" id="complaint-other-radio" name="complaint" value="Other" 
+                           class="form-radio h-5 w-5 mr-3 text-blue-600" ${this.userData.otherComplaint ? 'checked' : ''}>
                     <span>Other</span>
                 </label>
             </div>
@@ -810,40 +811,38 @@ Thank you.
         `;
         
         // --- Add Event Listeners ---
-        const otherCheckbox = content.querySelector('#complaint-other-checkbox');
+        const otherRadio = content.querySelector('#complaint-other-radio');
         const otherContainer = content.querySelector('#complaint-other-container');
         const otherText = content.querySelector('#complaint-other-text');
 
-        // Toggle 'Other' text input visibility
-        if (otherCheckbox) {
-            otherCheckbox.onchange = (e) => {
-                otherContainer?.classList.toggle('hidden', !e.target.checked);
-                // Clear text and saved data if 'Other' is unchecked
-                if (!e.target.checked && otherText) {
-                    otherText.value = ''; 
-                    this.userData.otherComplaint = ''; 
+        // Toggle 'Other' text input visibility based on radio selection
+        content.querySelectorAll('input[name="complaint"]').forEach(radio => {
+            radio.onchange = (e) => {
+                if (e.target.value === 'Other') {
+                    otherContainer?.classList.remove('hidden');
+                } else {
+                    otherContainer?.classList.add('hidden');
+                    // Clear text and saved data if 'Other' is not selected
+                    if (otherText) {
+                        otherText.value = ''; 
+                        this.userData.otherComplaint = ''; 
+                    }
                 }
+                // Update the single selected complaint
+                this.userData.complaints.clear();
+                this.userData.complaints.add(e.target.value);
             };
-        }
+        });
+
         // Save 'Other' text input value immediately (on input)
         if (otherText) {
             otherText.oninput = (e) => { 
-                // Only save if the 'Other' checkbox is actually checked
-                if (otherCheckbox?.checked) { 
+                // Only save if the 'Other' radio is selected
+                if (otherRadio?.checked) { 
                      this.userData.otherComplaint = e.target.value.trim();
                 }
             }
         }
-        // Add listeners to standard complaint checkboxes to update the Set
-        content.querySelectorAll('input[name="complaint"]:not([value="Other"])').forEach(checkbox => {
-             checkbox.onchange = (e) => {
-                 if (e.target.checked) {
-                     this.userData.complaints.add(e.target.value);
-                 } else {
-                     this.userData.complaints.delete(e.target.value);
-                 }
-            };
-        });
 
         content.appendChild(this.createNavigation()); 
         return content;
